@@ -1,0 +1,9 @@
+[template]
+src = "wp-config.tmpl"
+dest = "/var/www/wp-config.conf"
+keys = [
+  "/wordpress/database/url",
+    "/wordpress/database/user",
+   "/wordpress/database/password",
+   "/wordpress/database/dbname"
+    ]
