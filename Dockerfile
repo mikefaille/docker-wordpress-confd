@@ -19,8 +19,8 @@ ADD /supervisord-apache2.conf /etc/supervisor/conf.d/apache2.conf
 ADD /start-apache2.sh /data/start-apache2.sh
 
 # Add confd templates for Wordpress
-ADD /etc/confd/conf.d/wp-config.toml /etc/confd/conf.d/wp-config.toml
-ADD /etc/confd/templates/wp-config.tmpl /etc/confd/templates/wp-config.tmpl
+ADD etc/confd/conf.d/wp-config.toml /etc/confd/conf.d/wp-config.toml
+ADD etc/confd/templates/wp-config.tmpl /etc/confd/templates/wp-config.tmpl
 
 
 # Wordpress config
