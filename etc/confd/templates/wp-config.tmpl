@@ -17,24 +17,41 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 if( strlen(getenv("DB_NAME")) > 0 ) {
-  define('DB_NAME', '{{ .wordpress_database_dbname }}'  );
+    define('DB_NAME',getenv("DB_NAME")  );
+}
+else if{!'{{getv "/wordpress/database/dbname"}}' === '<no value>'}{
+define('DB_NAME', '{{getv "/wordpress/database/dbname"}}'  );
+
 } else {
   define('DB_NAME', 'wordpress');
 }
 
+
+
+
 /** MySQL database username */
 if( strlen(getenv("DB_USER")) > 0 ) {
-  define('DB_USER', '{{ .wordpress_database_user }}' );
-} else {
+    define('DB_USER', getenv("DB_USER") );
+}
+else if{!'{{getv "/wordpress/database/user"}}' === '<no value>' }{
+    define('DB_USER', '{{getv "/wordpress/database/user"}}'  );
+
+}
+else {
   define('DB_USER', 'admin');
 }
 
 /** MySQL database password */
-define('DB_PASSWORD', '{{ .wordpress_database_password }}' );
+define('DB_PASSWORD', '{{getv "/wordpress/database/password"}}' );
 
 /** MySQL hostname */
-if( strlen(getenv("DB_HOST")) > 0 ) {
-  define('DB_HOST', '{{ .wordpress_database_url }}' );
+if( strlenn(getenv("DB_HOST")) > 0 ) {
+    define('DB_NAME',getenv("DB_HOST")  );
+} else if{!'{{getv "/wordpress/database/url"}}' === '<no value>' }{
+    
+    define('DB_HOST', '{{getv "/wordpress/database/url"}}' );
+
+
 } else {
   define('DB_HOST', (getenv("DB_1_PORT_3306_TCP_ADDR") . ":" . getenv("DB_1_PORT_3306_TCP_PORT")));
 }
