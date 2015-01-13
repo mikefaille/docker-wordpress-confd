@@ -32,6 +32,6 @@ RUN chown www-data:www-data /var/www && chmod 755 /data/start-apache2.sh
 
 # Heartbeat will be use to know if this host is up
 ADD supervisord-heartbeat.conf /etc/supervisor/conf.d/heartbeat.conf
-ADD heatbeat.sh /data/heartbeat.sh
+ADD heartbeat.sh /data/heartbeat.sh
 
 CMD ["/data/run.sh"]
